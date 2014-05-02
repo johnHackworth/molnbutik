@@ -15,8 +15,10 @@ var _ = require('underscore');
       this.imports = imports;
       this.express = imports.express();
       this.fs = imports.fs;
+      this.getHeader();
       this.getLanguageFiles();
       this.getCatalog();
+      this.getInfo();
       this.routers();
     },
     getLanguageFiles: function() {
@@ -29,6 +31,18 @@ var _ = require('underscore');
       var self = this;
       this.fs.readFile(__dirname + '/data/catalog.json', 'utf8', function(err, text){
         self.items = JSON.parse(text);
+      })
+    },
+    getInfo: function() {
+      var self = this;
+      this.fs.readFile(__dirname + '/data/info.json', 'utf8', function(err, text){
+        self.info = JSON.parse(text);
+      })
+    },
+    getHeader: function() {
+      var self = this;
+      this.fs.readFile(__dirname + '/html/header.html', 'utf8', function(err, text){
+        self.header = text;
       })
     },
     routers: function() {
@@ -45,6 +59,7 @@ var _ = require('underscore');
       // this.express.use(imports.express.favicon(__dirname + '/client/assets/img/favicon.ico'));
       this.express.get('/', this.getTemplate.bind(this, __dirname + '/html/front.html'));
       this.express.get('/catalog/:name', this.getItem.bind(this));
+      this.express.get('/info', this.getTemplate.bind(this, __dirname + '/html/info.html'));
 
     },
     getItem: function(req, res) {
@@ -76,12 +91,17 @@ var _ = require('underscore');
     },
     getTemplate: function(tmpl, req, res, data) {
       var self = this;
+      var compiledHeader = _.template(this.header, {
+        i18n: self.i18n[self.language]
+      });
       this.fs.readFile(tmpl, 'utf8', function(err, text){
         res.send(200, _.template(text, {
           i18n: self.i18n[self.language],
           items: self.getItems(self.language),
           language: self.language,
-          data: data
+          data: data,
+          header: compiledHeader,
+          info: self.info[self.language]
         }))
       });
     },

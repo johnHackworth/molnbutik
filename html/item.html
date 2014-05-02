@@ -6,20 +6,8 @@
 
   </head>
   <body>
-    <header>
-      <div class="logo color pink">
-        <span class="logoText">
-          <img src="/assets/logo.png"></img>
-        </span>
-      </div>
-      <div class="menu">
-        <ul>
-          <li><a href=""><%= i18n.info %></a></li>
-          <li><a href="/" ><%= i18n.catalog %></a></li>
-          <li><a href=""><%= i18n.shop %></a></li>
-        </ul>
-      </div>
-    </header>
+    <%= header %>
+
     <section class="itemView">
       <div class="images">
         <div class="mainImage">
@@ -28,7 +16,7 @@
         <div class="imageCarousel">
           <% _.each(data.imgs, function(img) {
             %>
-            <div class="miniImg">
+            <div class="miniImg" data-src="<%= img.bigSize %>">
               <img src="<%= img.thumbnail %>"></img>
             </div>
 
@@ -39,6 +27,15 @@
         <div class="name">
           <%= data.name %>
         </div>
+        <div class="videoLink">
+          <%
+            if(data.video) {
+            %>
+            <a href="<%= data.video %>" target="_blank">▶</a>
+            <%
+            }
+          %>
+        </div>
         <div class="cloth">
           <%= data.text[language] %>
         </div>
@@ -46,5 +43,6 @@
     </section>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/js/header.js"></script>
+    <script src="/js/carousel.js"></script>
   </body>
 </html>

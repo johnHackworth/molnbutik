@@ -32,6 +32,7 @@ body {
 .itemView .images .imageCarousel .miniImg{
   width: 80%;
   margin: 0 10% 10% 10%;
+  cursor: pointer;
 }
 
 .itemView .images .imageCarousel img {
@@ -45,6 +46,19 @@ body {
 }
 
 .itemView .info .name {
+  width: 80%;
   margin-bottom: 2em;
   font-weight: bold;
+  float: left;
+}
+
+.itemView .info .videoLink {
+  width: 20%;
+  float: right;
+  font-size: 18px;
+}
+.itemView .info .videoLink a {
+  text-decoration: none;
+  position: relative;
+  top: -5px;
 }
