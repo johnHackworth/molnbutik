@@ -1,0 +1,124 @@
+@keyframes mirror {
+  0% { transform:scale(1,1); }
+  25% { transform:scale(0,1); }
+  50% { transform:scale(-1,1); }
+  75% { transform:scale(0,1); }
+  100% { transform:scale(1,1); }
+}
+@-moz-keyframes mirror {
+  0% { -moz-transform:scale(1,1); }
+  25% { -moz-transform:scale(0,1); }
+  50% { -moz-transform:scale(-1,1); }
+  75% { -moz-transform:scale(0,1); }
+  100% { -moz-transform:scale(1,1); }
+}
+@-webkit-keyframes mirror {
+  0% { -webkit-transform:scale(1,1); }
+  25% { -webkit-transform:scale(0,1); }
+  50% { -webkit-transform:scale(-1,1); }
+  75% { -webkit-transform:scale(0,1); }
+  100% { -webkit-transform:scale(1,1); }
+}
+
+
+body {
+  font-family: 'Questrial', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+header .logo {
+  border-radius: 50%;
+  margin: auto;
+  height: 180px;
+  width: 180px;
+  display: inline-block;
+  position: relative;
+  top: 10px;
+
+  -webkit-transition: all 0.25s linear, background 2.5s linear;
+  -moz-transition:  all 0.25s linear, background  2.5s linear;
+  -o-transition:  all 0.25s linear, background  2.5s linear;
+  -ms-transition:  all 0.25s linear, background  2.5s linear;
+  transition:  all 0.25s linear, background  2.5s linear;
+}
+
+header .logo .logoText {
+  display: inline-block;
+  height: 35px;
+  margin-top: 70px;
+}
+
+header .menu {
+  margin-top: 2em;
+}
+
+header .menu a {
+  text-decoration: none;
+  padding: 50px;
+
+  text-transform: capitalize;
+  font-size: 15px;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+header .menu a:hover {
+  color: #FFE3D1;
+}
+
+.color.pink {
+  background: #FFE3D1;
+}
+
+.color.blue {
+  background: #d4f2f3;
+}
+.color.yellow {
+  background: #fff1b5;
+}
+.color.green {
+  background: #dbf3d0;
+}
+.color.peach {
+  background: #fff6de;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  display: inline-block;
+}
+
+a {
+  color: #333;
+}
+
+.mirror {
+  display:block;
+  -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+  -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+  -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.flip {
+  animation: mirror 1s;
+  -moz-animation: mirror 1s;
+  -webkit-animation: mirror 1s;
+}
+

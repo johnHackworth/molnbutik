@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href="/styles/common.css" rel="stylesheet" />
+    <link href="/styles/frontpage.css" rel="stylesheet" />
+
+  </head>
+  <body>
+    <header>
+      <div class="logo color pink">
+        <span class="logoText">
+          <img src="/assets/logo.png"></img>
+        </span>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href=""><%= i18n.info %></a></li>
+          <li><a href="/"><%= i18n.catalog %></a></li>
+          <li><a href=""><%= i18n.shop %></a></li>
+        </ul>
+      </div>
+    </header>
+    <section>
+      <% _.each(items, function(item) {
+        %>
+        <a class="item" href="catalog/<%= item.name %>">
+          <img src="<%= item.img %>"></img>
+          <div class="title">
+            <%= item.name %>
+          </div>
+        </a>
+        <%
+      }) %>
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/header.js"></script>
+  </body>
+</html>

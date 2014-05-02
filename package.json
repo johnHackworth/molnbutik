@@ -1,0 +1,9 @@
+{
+  "name": "moln",
+  "description": "moln site",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "4.x",
+    "underscore": "1.4.x"
+  }
+}

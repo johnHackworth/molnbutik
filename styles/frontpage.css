@@ -1,0 +1,21 @@
+section {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 3em;
+}
+.item {
+  display: inline-block;
+  /*float: left;*/
+  /*padding: 20px;*/
+  /*width: 250px;*/
+  width: auto;
+  min-width: 270px;
+  margin-bottom: 2em;
+}
+
+.item .text{
+  display: inline-block;
+  margin-top: 1em;
+  text-align: center;
+}

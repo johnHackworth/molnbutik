@@ -1,0 +1,50 @@
+body {
+  text-align: center;
+}
+
+.itemView {
+  font-family: 'questrial';
+  display: inline-block;
+  margin: 2em auto;
+  width: 1024px;
+}
+
+.itemView .images {
+  width: 60%;
+  float: left;
+  text-align: right;
+}
+
+.itemView .images .mainImage {
+  float: left;
+  width: 80%;
+}
+.itemView .images .mainImage img {
+  width: 100%;
+}
+
+.itemView .images .imageCarousel {
+  float: right;
+  display: inline-block;
+  width: 20%;
+}
+
+.itemView .images .imageCarousel .miniImg{
+  width: 80%;
+  margin: 0 10% 10% 10%;
+}
+
+.itemView .images .imageCarousel img {
+  width: 100%;
+}
+
+.itemView .info {
+  width: 35%;
+  float: right;
+  text-align: left;
+}
+
+.itemView .info .name {
+  margin-bottom: 2em;
+  font-weight: bold;
+}
