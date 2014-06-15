@@ -10,7 +10,7 @@ var _ = require('underscore');
     this.initialize(options);
   };
   app.prototype = {
-    language: 'en',
+    language: 'es',
     initialize: function(imports) {
       this.imports = imports;
       this.express = imports.express();

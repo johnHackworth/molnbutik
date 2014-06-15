@@ -3,5 +3,10 @@
     "catalog": "catalog",
     "info": "info",
     "shop": "shop"
+  },
+  "es": {
+    "catalog": "catalogo",
+    "info": "info",
+    "shop": "tienda"
   }
 }
