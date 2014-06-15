@@ -63,3 +63,13 @@ body {
   position: relative;
   top: -5px;
 }
+
+.cloth {
+  display: inline-block;
+}
+
+.cloth br {
+  height: 2em;
+  margin-top: 2em;
+  display: block;
+}
