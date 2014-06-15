@@ -66,17 +66,35 @@ var _ = require('underscore');
       this.express.get('/', this.getTemplate.bind(this, __dirname + '/html/front.html'));
       this.express.get('/catalog/:name', this.getItem.bind(this));
       this.express.get('/info', this.getTemplate.bind(this, __dirname + '/html/info.html'));
-
+      this.express.get('/song/:id', this.showVideoSong.bind(this));
     },
-    getItem: function(req, res) {
-      var itemName = req.params.name;
+    searchCatalog: function(property, itemName) {
       var item = null;
       for (var i in this.items) {
-        if (this.items[i].name === itemName) {
+        if (this.items[i][property] === itemName) {
           item = this.items[i];
         }
       }
+      return item;
+    },
+    getItem: function(req, res) {
+      var itemName = req.params.name;
+      var item = this.searchCatalog('name', itemName);
       this.sendItemView(res, item);
+    },
+    showVideoSong: function(req, res) {
+      var id = req.params.id;
+      var item = this.searchCatalog('id', id);
+      this.sendSongView(res, item);
+    },
+    sendSongView: function(res, item) {
+      if (!item || !item.video) {
+        this.get404(null, res);
+      } else {
+        console.log(item.video);
+        this.getTemplate(__dirname + '/html/fullScreenVideo.html', null, res, item);
+      }
+
     },
     sendItemView: function(res, item) {
       if (!item) {
