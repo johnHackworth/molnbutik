@@ -19,3 +19,22 @@ section {
   margin-top: 1em;
   text-align: center;
 }
+
+.item .title {
+  text-transform: capitalize;
+  margin-top: 0.5em;
+}
+
+.item:hover .title {
+  color: #FFAAAA;
+
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+a {
+  text-decoration: none;
+}

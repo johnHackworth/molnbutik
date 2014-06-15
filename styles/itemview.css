@@ -21,6 +21,7 @@ body {
 }
 .itemView .images .mainImage img {
   width: 100%;
+  cursor: pointer;
 }
 
 .itemView .images .imageCarousel {

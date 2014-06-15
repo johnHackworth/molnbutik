@@ -1,0 +1,20 @@
+{
+  "name": "Nantes",
+  "text": {
+    "en": "lalala"
+  },
+  "img": "/assets/pictures/square_nantes.png",
+  "imgs": [{
+    "bigSize": "/assets/pictures/large_nantes_1.png",
+    "mediumSize": "/assets/pictures/medium_large_nantes_1.png",
+    "thumbnail": "/assets/pictures/small_large_nantes_1.png"
+  }, {
+    "bigSize": "/assets/pictures/large_nantes_2.png",
+    "mediumSize": "/assets/pictures/medium_large_nantes_2.png",
+    "thumbnail": "/assets/pictures/small_large_nantes_2.png"
+  }, {
+    "bigSize": "/assets/pictures/large_nantes_3.png",
+    "mediumSize": "/assets/pictures/medium_large_nantes_3.png",
+    "thumbnail": "/assets/pictures/small_large_nantes_3.png"
+  }]
+}

@@ -28,6 +28,10 @@ body {
   padding: 0;
 }
 
+body a {
+  cursor: pointer;
+}
+
 header {
   display: inline-block;
   width: 100%;
@@ -122,3 +126,29 @@ a {
   -webkit-animation: mirror 1s;
 }
 
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  display: none;
+  margin-top: 5%;
+  padding: 10px 10px;
+  background-color: #333;
+  left: calc(50% - 320px);
+  text-align: center;
+  width: 640px;
+}
+.lightbox.full {
+  left: 0;
+  top: 0;
+  margin-top:0;
+  width: calc(100% - 20px);
+  position: absolute;
+  z-index: 99999999;
+  /*height: calc(100% - 100px);*/
+  background-color: rgba(50, 50, 50, 0.5);
+}
+
+.lightbox.show {
+
+}

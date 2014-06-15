@@ -6,7 +6,8 @@ window.moln.carousel = function() {
 
 window.moln.selectImage = function(ev) {
   var $image = $(ev.currentTarget)
-  $('.mainImage img').attr('src', $image.attr('data-src'));
+  $('.mainImage img').attr('src', $image.attr('data-medium'));
+  $('.mainImage .lightbox img').attr('src', $image.attr('data-src'));
 }
 
 $(document).ready(window.moln.carousel);

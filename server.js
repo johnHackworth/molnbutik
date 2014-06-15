@@ -23,25 +23,31 @@ var _ = require('underscore');
     },
     getLanguageFiles: function() {
       var self = this;
-      this.fs.readFile(__dirname + '/data/texts.json', 'utf8', function(err, text){
+      this.fs.readFile(__dirname + '/data/texts.json', 'utf8', function(err, text) {
         self.i18n = JSON.parse(text);
       })
     },
     getCatalog: function() {
       var self = this;
-      this.fs.readFile(__dirname + '/data/catalog.json', 'utf8', function(err, text){
-        self.items = JSON.parse(text);
-      })
+      self.items = [];
+      this.fs.readdir(__dirname + '/data/catalog/', function(err, files) {
+        for (var i in files) {
+          self.fs.readFile(__dirname + '/data/catalog/' + files[i], 'utf8', function(err, text) {
+            var item = JSON.parse(text);
+            self.items.push(item);
+          });
+        }
+      });
     },
     getInfo: function() {
       var self = this;
-      this.fs.readFile(__dirname + '/data/info.json', 'utf8', function(err, text){
+      this.fs.readFile(__dirname + '/data/info.json', 'utf8', function(err, text) {
         self.info = JSON.parse(text);
       })
     },
     getHeader: function() {
       var self = this;
-      this.fs.readFile(__dirname + '/html/header.html', 'utf8', function(err, text){
+      this.fs.readFile(__dirname + '/html/header.html', 'utf8', function(err, text) {
         self.header = text;
       })
     },
@@ -65,15 +71,15 @@ var _ = require('underscore');
     getItem: function(req, res) {
       var itemName = req.params.name;
       var item = null;
-      for(var i in this.items) {
-        if(this.items[i].name === itemName) {
+      for (var i in this.items) {
+        if (this.items[i].name === itemName) {
           item = this.items[i];
         }
       }
       this.sendItemView(res, item);
     },
     sendItemView: function(res, item) {
-      if(!item) {
+      if (!item) {
         this.get404(null, res);
       } else {
         this.getTemplate(__dirname + '/html/item.html', null, res, item);
@@ -94,7 +100,7 @@ var _ = require('underscore');
       var compiledHeader = _.template(this.header, {
         i18n: self.i18n[self.language]
       });
-      this.fs.readFile(tmpl, 'utf8', function(err, text){
+      this.fs.readFile(tmpl, 'utf8', function(err, text) {
         res.send(200, _.template(text, {
           i18n: self.i18n[self.language],
           items: self.getItems(self.language),
@@ -108,12 +114,12 @@ var _ = require('underscore');
     getItems: function(lang) {
       return this.items;
     },
-    getFile: function(file,req,res) {
+    getFile: function(file, req, res) {
       res.sendfile(file);
     },
     listen: function(port) {
       this.express.listen(port);
-      console.log('listening to '+port);
+      console.log('listening to ' + port);
     },
   };
   global.server = app;

@@ -1,0 +1,20 @@
+{
+  "name": "Blue Line Swinger",
+  "text": {
+    "en": "lalala"
+  },
+  "img": "/assets/pictures/square_bluelineswinger.png",
+  "imgs": [{
+    "bigSize": "/assets/pictures/large_bluelineswinger_1.png",
+    "mediumSize": "/assets/pictures/medium_large_bluelineswinger_1.png",
+    "thumbnail": "/assets/pictures/small_large_bluelineswinger_1.png"
+  }, {
+    "bigSize": "/assets/pictures/large_bluelineswinger_2.png",
+    "mediumSize": "/assets/pictures/medium_large_bluelineswinger_2.png",
+    "thumbnail": "/assets/pictures/small_large_bluelineswinger_2.png"
+  }, {
+    "bigSize": "/assets/pictures/large_bluelineswinger_3.png",
+    "mediumSize": "/assets/pictures/medium_large_bluelineswinger_3.png",
+    "thumbnail": "/assets/pictures/small_large_bluelineswinger_3.png"
+  }]
+}

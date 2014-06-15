@@ -1,0 +1,16 @@
+{
+  "name": "Bloom",
+  "text": {
+    "en": "lalala"
+  },
+  "img": "/assets/pictures/square_bloom.png",
+  "imgs": [{
+    "bigSize": "/assets/pictures/large_bloom_1.png",
+    "mediumSize": "/assets/pictures/medium_large_bloom_1.png",
+    "thumbnail": "/assets/pictures/small_large_bloom_1.png"
+  }, {
+    "bigSize": "/assets/pictures/large_bloom_2.png",
+    "mediumSize": "/assets/pictures/medium_large_bloom_2.png",
+    "thumbnail": "/assets/pictures/small_large_bloom_2.png"
+  }]
+}

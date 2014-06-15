@@ -11,12 +11,15 @@
     <section class="itemView">
       <div class="images">
         <div class="mainImage">
-          <img src="<%= data.imgs[0].bigSize %>"></img>
+          <img data-lightbox="lightboxImage" src="<%= data.imgs[0].mediumSize %>"></img>
+          <div class="lightbox full" id="lightboxImage">
+            <img src="<%= data.imgs[0].bigSize %>"></img>
+          </div>
         </div>
         <div class="imageCarousel">
           <% _.each(data.imgs, function(img) {
             %>
-            <div class="miniImg" data-src="<%= img.bigSize %>">
+            <div class="miniImg" data-src="<%= img.bigSize %>" data-medium="<%= img.mediumSize %>">
               <img src="<%= img.thumbnail %>"></img>
             </div>
 
@@ -31,7 +34,8 @@
           <%
             if(data.video) {
             %>
-            <a href="<%= data.video %>" target="_blank">▶</a>
+            <a data-lightbox="videoLightbox" target="_blank">▶</a>
+            <div id='videoLightbox' class="lightbox"><iframe width="640" height="480" src="<%= data.video %>" frameborder="0" allowfullscreen></iframe></div>
             <%
             }
           %>
@@ -43,6 +47,7 @@
     </section>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/js/header.js"></script>
+    <script src="/js/lightbox.js"></script>
     <script src="/js/carousel.js"></script>
   </body>
 </html>
