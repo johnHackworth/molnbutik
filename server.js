@@ -15,7 +15,7 @@ var _ = require('underscore');
       this.imports = imports;
       this.express = imports.express();
       this.fs = imports.fs;
-      this.getHeader();
+      this.getHeaderAndFooter();
       this.getLanguageFiles();
       this.getCatalog();
       this.getInfo();
@@ -33,8 +33,13 @@ var _ = require('underscore');
       this.fs.readdir(__dirname + '/data/catalog/', function(err, files) {
         for (var i in files) {
           self.fs.readFile(__dirname + '/data/catalog/' + files[i], 'utf8', function(err, text) {
-            var item = JSON.parse(text);
-            self.items.push(item);
+            try {
+              var item = JSON.parse(text);
+              self.items.push(item);
+            } catch (err) {
+              // console.log(text);
+              console.log(err);
+            }
           });
         }
       });
@@ -45,10 +50,13 @@ var _ = require('underscore');
         self.info = JSON.parse(text);
       })
     },
-    getHeader: function() {
+    getHeaderAndFooter: function() {
       var self = this;
       this.fs.readFile(__dirname + '/html/header.html', 'utf8', function(err, text) {
         self.header = text;
+      })
+      this.fs.readFile(__dirname + '/html/footer.html', 'utf8', function(err, text) {
+        self.footer = text;
       })
     },
     routers: function() {
@@ -125,6 +133,7 @@ var _ = require('underscore');
           language: self.language,
           data: data,
           header: compiledHeader,
+          footer: self.footer,
           info: self.info[self.language]
         }))
       });

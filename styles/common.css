@@ -152,3 +152,14 @@ a {
 .lightbox.show {
 
 }
+
+footer {
+  width: 1024px;
+  margin: 3% auto;
+  text-align: right;
+}
+
+footer i {
+  margin-left: 10px;
+  font-size: 18px;
+}

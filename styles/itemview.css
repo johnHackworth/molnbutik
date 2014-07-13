@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  
 }
 
 .itemView {
@@ -7,6 +8,9 @@ body {
   display: inline-block;
   margin: 2em auto;
   width: 1024px;
+  font-size: 14px;
+  
+  
 }
 
 .itemView .images {
@@ -66,6 +70,7 @@ body {
 
 .cloth {
   display: inline-block;
+  line-height: 17px;
 }
 
 .cloth br {
