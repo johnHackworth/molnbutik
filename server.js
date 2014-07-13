@@ -3,6 +3,7 @@ var imports = {
   fs: require('fs'),
   express: require('express')
 };
+var favicon = require('serve-favicon');
 var _ = require('underscore');
 
 (function() {
@@ -68,7 +69,7 @@ var _ = require('underscore');
       this.express.use('/styles', imports.express.static(__dirname + '/styles'));
       this.express.use('/assets', imports.express.static(__dirname + '/assets'));
       this.express.use('/js', imports.express.static(__dirname + '/js'));
-
+      this.express.use(favicon(__dirname + '/assets/favicon.ico'));
       // this.express.use(imports.express.static(__dirname + '/client/html'));
       // this.express.use(imports.express.favicon(__dirname + '/client/assets/img/favicon.ico'));
       this.express.get('/', this.getTemplate.bind(this, __dirname + '/html/front.html'));
