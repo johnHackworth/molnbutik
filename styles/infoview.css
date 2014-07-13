@@ -2,6 +2,6 @@ section.info {
   margin: auto;
   padding-top: 2em;
   max-width: 800px;
-  text-align: justify;
+  text-align: justify; font-size:14px;
 
 }
